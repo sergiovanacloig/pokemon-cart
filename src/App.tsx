@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { Box, Center, Container, Heading } from "@chakra-ui/react";
+
+const PokemonModule = React.lazy(() => import("modules/Pokemon"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Suspense fallback={<div>Loading...</div>}>
+      <Box as="section" h="100%" bg="#f0f0f0">
+        <Center
+          as="header"
+          h="100px"
+          bg="tomato"
+          color="white"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Heading as="h2" size="xl" noOfLines={1}>
+            POKEMON APP
+          </Heading>
+        </Center>
+        <Container maxW="container.lg">
+          <PokemonModule />
+        </Container>
+      </Box>
+    </Suspense>
   );
 }
 
