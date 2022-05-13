@@ -2,9 +2,9 @@ import { AppDispatch } from "store";
 import { endpoints } from "../api/endpoints";
 import { getPokemons, getPokemonsError, getPokemonsSuccess } from "./reducer";
 
-export const fetchPokemonList = () => async (dispatch: AppDispatch) => {
+export const fetchPokemonList = () => (dispatch: AppDispatch) => {
   dispatch(getPokemons());
-  await fetch(endpoints.GET_POKEMONS, {
+  fetch(endpoints.GET_POKEMONS, {
     method: "GET",
   })
     .then((res) => {

@@ -18,11 +18,12 @@ const PokemonList = () => {
     dispatch(fetchPokemonList());
   }, [dispatch]);
 
-  if (loading) return <Spinner color="tomato" />;
+  if (loading)
+    return <Spinner color="tomato" data-testid="pokemon-list-loader" />;
 
   return (
     <ul className={style.list}>
-      {pokemonList.map((pokemon: Pokemon) => (
+      {pokemonList?.map((pokemon: Pokemon) => (
         <Card key={pokemon.name} name={pokemon.name} />
       ))}
     </ul>
