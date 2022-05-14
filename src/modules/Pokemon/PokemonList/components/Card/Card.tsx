@@ -1,4 +1,6 @@
 import { Avatar, Box, Heading } from "@chakra-ui/react";
+import IncrementInput from "components/IncrementInput";
+
 import styles from "./card.module.scss";
 
 export interface CardProps {
@@ -11,7 +13,7 @@ const Card = ({ name }: CardProps) => (
     w="full"
     border="1px solid grey"
     rounded="lg"
-    p={10}
+    p="10"
     textAlign="center"
     bg="white"
   >
@@ -21,9 +23,10 @@ const Card = ({ name }: CardProps) => (
       mb={4}
       pos="relative"
     />
-    <Heading fontSize="2xl" fontFamily="body" className={styles.title}>
+    <Heading fontSize="2xl" fontFamily="body" className={styles.title} mb="10">
       {name}
     </Heading>
+    <IncrementInput onChange={(val) => console.log(val)}/>
   </Box>
 );
 
